@@ -1,5 +1,5 @@
 <?php
-require 'helpers.php';
+require '../vendor/autoload.php';
 
 $result = $suiteResults['fail'] === 0 ? 'pass' : 'fail';
 
@@ -23,4 +23,4 @@ foreach($cases as $caseTitle => $case) {
 echo
 str_repeat('=', 80)."\n",
 "Tests: [$result], {pass {$suiteResults['pass']} / fail {$suiteResults['fail']}}, ",
-percent($suiteResults)."% success\n";
+\Testify\Util::percent($suiteResults)."% success\n";
