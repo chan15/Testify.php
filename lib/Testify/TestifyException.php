@@ -1,5 +1,7 @@
 <?php
 
+namespace Testify;
+
 /**
  * TestifyException class
  *
