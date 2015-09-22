@@ -431,12 +431,3 @@ class Testify {
         return $this->run();
     }
 }
-
-/**
- * TestifyException class
- *
- */
-class TestifyException extends \Exception
-{
-
-}
