@@ -1,6 +1,4 @@
-<?php
-require 'helpers.php';
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -187,7 +185,7 @@ require 'helpers.php';
 
 				<div class="message <?php echo $result?>">
 					<span class="green">Far out! Everything passed!</span>
-					<span class="red">Bummer! You have failing tests! [pass <?php echo percent($suiteResults)?>%]</span>
+					<span class="red">Bummer! You have failing tests! [pass <?php echo \Testify\Util::percent($suiteResults)?>%]</span>
 				</div>
 
 				<?php
