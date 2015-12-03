@@ -165,11 +165,13 @@
 
 		</style>
 
+		<?php if (!$this->gfw): ?>
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow" />
 
 		<!--[if lt IE 9]>
 		  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+		<?php endif ?>
 	</head>
 
 	<body>

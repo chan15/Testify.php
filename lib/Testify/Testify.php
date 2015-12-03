@@ -33,6 +33,13 @@ class Testify {
     private $afterEach = null;
 
     /**
+     * As html report need google api(font), while not available in China, this is an option to surrend to gfw(great fire wall)
+     *
+     * @var bool
+     */
+    public $gfw = false;
+
+    /**
      * A public object for storing state and other variables across test cases and method calls.
      *
      * @var \StdClass
