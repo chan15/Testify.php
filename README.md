@@ -61,6 +61,7 @@ $tf();
  * `assertFalse( boolean $arg, [string $message = ''] )` - Passes if given a falsy expression
  * `assertEquals( mixed $arg1, mixed $arg2, string [string $message = ''] )` - Passes if $arg1 == $arg2
  * `assertCount( integer $arg1, mixed $arg2, string [string $message = ''] )` - Passes if $arg1 == count($arg2)
+ * `assertContains( mixed $needle, mixed $haystack, string [string $message = ''], boolean $ignoreCase )` - Passes if $haystack contains $needle
  * `assertNotEquals( mixed $arg1, mixed $arg2, string [string $message = ''] )` - Passes if $arg1 != $arg2
  * `assertSame( mixed $arg1, mixed $arg2, string [string $message = ''] )` - Passes if $arg1 === $arg2
  * `assertNotSame( mixed $arg1, mixed $arg2, string [string $message = ''] )` - Passes if $arg1 !== $arg2

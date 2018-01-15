@@ -277,6 +277,29 @@ class Testify
     }
 
     /**
+     * Asserts that a haystack contains a needle.
+     *
+     * @param string  $needle
+     * @param mixed   $haystack
+     * @param string  $message
+     * @param boolean $ignoreCase
+     *
+     * @return boolean
+     */
+    public function assertContains($needle, $haystack, $message = '', $ignoreCase = FALSE)
+    {
+        if (is_array($haystack)) {
+            return $this->assertInArray($needle, $haystack, $message);
+        }
+
+        if ($ignoreCase === TRUE) {
+            return $this->recordTest(mb_stripos($haystack, $needle) !== FALSE, $message);
+        }
+
+        return $this->recordTest(mb_strpos($haystack, $needle) !== FALSE, $message);
+    }
+
+    /**
      * Passes if $arg is an element of $arr.
      *
      * @param mixed  $arg
