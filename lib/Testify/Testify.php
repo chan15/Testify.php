@@ -24,9 +24,9 @@ class Testify
     /**
      * As html report need google api(font), while not available in China, this is an option to surrend to gfw(great fire wall).
      *
-     * @var bool
+     * @var boolean
      */
-    public $gfw = false;
+    public $gfw = FALSE;
 
     /**
      * A public object for storing state and other variables across test cases and method calls.
@@ -81,7 +81,7 @@ class Testify
      *
      * @return $this
      */
-    public function test($name, \Closure $testCase = null)
+    public function test($name, \Closure $testCase = NULL)
     {
         if (is_callable($name)) {
             $testCase = $name;
@@ -146,7 +146,7 @@ class Testify
      *
      * @return $this
      */
-    public function run(\Closure $customReporter = null)
+    public function run(\Closure $customReporter = NULL)
     {
         $this->customReporter = $customReporter;
         $arr = array($this);
@@ -182,8 +182,8 @@ class Testify
     /**
      * Alias for {@see assertTrue} method.
      *
-     * @param bool   $arg     The result of a boolean expression
-     * @param string $message (optional) Custom message. SHOULD be specified for easier debugging
+     * @param boolean $arg     The result of a boolean expression
+     * @param string  $message (optional) Custom message. SHOULD be specified for easier debugging
      *
      * @see Testify->assertTrue()
      *
@@ -197,27 +197,27 @@ class Testify
     /**
      * Passes if given a truthfull expression.
      *
-     * @param bool   $arg     The result of a boolean expression
-     * @param string $message (optional) Custom message. SHOULD be specified for easier debugging
+     * @param boolean $arg     The result of a boolean expression
+     * @param string  $message (optional) Custom message. SHOULD be specified for easier debugging
      *
      * @return boolean
      */
     public function assertTrue($arg, $message = '')
     {
-        return $this->recordTest($arg == true, $message);
+        return $this->recordTest($arg == TRUE, $message);
     }
 
     /**
      * Passes if given a falsy expression.
      *
-     * @param bool   $arg     The result of a boolean expression
-     * @param string $message (optional) Custom message. SHOULD be specified for easier debugging
+     * @param boolean $arg     The result of a boolean expression
+     * @param string  $message (optional) Custom message. SHOULD be specified for easier debugging
      *
      * @return boolean
      */
     public function assertFalse($arg, $message = '')
     {
-        return $this->recordTest($arg == false, $message);
+        return $this->recordTest($arg == FALSE, $message);
     }
 
     /**
@@ -287,7 +287,7 @@ class Testify
      */
     public function assertInArray($arg, array $arr, $message = '')
     {
-        return $this->recordTest(in_array($arg, $arr, true), $message);
+        return $this->recordTest(in_array($arg, $arr, TRUE), $message);
     }
 
     /**
@@ -301,7 +301,7 @@ class Testify
      */
     public function assertNotInArray($arg, array $arr, $message = '')
     {
-        return $this->recordTest(!in_array($arg, $arr, true), $message);
+        return $this->recordTest(!in_array($arg, $arr, TRUE), $message);
     }
 
     /**
@@ -313,7 +313,7 @@ class Testify
      */
     public function pass($message = '')
     {
-        return $this->recordTest(true, $message);
+        return $this->recordTest(TRUE, $message);
     }
 
     /**
@@ -326,7 +326,7 @@ class Testify
     public function fail($message = '')
     {
         // This check fails every time
-        return $this->recordTest(false, $message);
+        return $this->recordTest(FALSE, $message);
     }
 
     /**
@@ -349,6 +349,20 @@ class Testify
         }
 
         return $this;
+    }
+
+    /**
+     * Check if $arg2's size equals to $arg1.
+     *
+     * @param integer $arg1
+     * @param mixed   $arg2
+     * @param mixed   $message
+     *
+     * @return boolean
+     */
+    public function assertCount($arg1, $arg2, $message = '')
+    {
+        return $this->recordTest((int) $arg1 === count($arg2), $message);
     }
 
     /**
@@ -386,8 +400,8 @@ class Testify
     /**
      * A helper method for recording the results of the assertions in the internal stack.
      *
-     * @param bool   $pass    If equals true, the test has passed, otherwise failed
-     * @param string $message (optional) Custom message
+     * @param boolean $pass    If equals true, the test has passed, otherwise failed
+     * @param string  $message (optional) Custom message
      *
      * @return boolean
      */
@@ -423,8 +437,8 @@ class Testify
     /**
      * Internal method for fetching a specific line of a text file. With caching.
      *
-     * @param string $file The file name
-     * @param int    $line The line number to return
+     * @param string  $file The file name
+     * @param integer $line The line number to return
      *
      * @return string
      */
